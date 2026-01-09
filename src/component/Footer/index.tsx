@@ -1,4 +1,5 @@
-import { Instagram, Linkedin} from "lucide-react";
+import { Instagram, Youtube} from "lucide-react";
+import { Link } from "react-router-dom";
 
 function Footer() {
   const currentYear = new Date().getFullYear();
@@ -20,14 +21,14 @@ function Footer() {
 
           {/* Centro: Social Links */}
           <nav className="flex items-center gap-8">
-            <a href="#" className="text-gson-sand/60 hover:text-gson-yellow transition-colors flex items-center gap-2 group">
+            <Link to="https://www.instagram.com/gson_creativity/" target="_blank" className="text-gson-sand/60 hover:text-gson-yellow transition-colors flex items-center gap-2 group">
               <Instagram size={18} className="group-hover:scale-110 transition-transform" />
               <span className="text-xs font-medium uppercase tracking-widest hidden sm:inline">Instagram</span>
-            </a>
-            <a href="#" className="text-gson-sand/60 hover:text-gson-yellow transition-colors flex items-center gap-2 group">
-              <Linkedin size={18} className="group-hover:scale-110 transition-transform" />
-              <span className="text-xs font-medium uppercase tracking-widest hidden sm:inline">LinkedIn</span>
-            </a>
+            </Link>
+            <Link to="https://www.youtube.com/@gsoncreativity" target="_blank" className="text-gson-sand/60 hover:text-gson-yellow transition-colors flex items-center gap-2 group">
+              <Youtube size={20} className="group-hover:scale-110 transition-transform" />
+              <span className="text-xs font-medium uppercase tracking-widest hidden sm:inline">YouTube</span>
+            </Link>
           </nav>
         </div>
 
