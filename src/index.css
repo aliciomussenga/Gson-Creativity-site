@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+
+@theme {
+  --color-gson-black: #0D0D0D;
+  --color-gson-yellow: #F2E30C;
+  --color-gson-gold: #F2B90C;
+  --color-gson-beige: #F2E1AE;
+  --color-gson-sand: #F2DCC9;
+}
