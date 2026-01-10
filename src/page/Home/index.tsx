@@ -5,7 +5,7 @@ import CallToAction from "../../sections/CallToAction";
 
 function Home() {
   return (
-    <div className="bg-gson-black overflow-x-hidden pt-20">
+    <div className="bg-gson-black overflow-x-hidden pt-18">
       <Hero />
       <Ticker />
       <Metodo />
