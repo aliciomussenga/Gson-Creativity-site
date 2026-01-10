@@ -14,18 +14,18 @@ function Footer() {
             <h2 className="text-white font-bold tracking-tighter text-xl">
               GSON <span className="text-gson-yellow text-2xl">Creativity</span>
             </h2>
-            <p className="text-gson-sand/40 text-xs uppercase tracking-[0.3em]">
+            <p className="text-gson-sand/70 text-xs uppercase tracking-[0.3em]">
               High Performance Agency
             </p>
           </div>
 
           {/* Centro: Social Links */}
           <nav className="flex items-center gap-8">
-            <Link to="https://www.instagram.com/gson_creativity/" target="_blank" className="text-gson-sand/60 hover:text-gson-yellow transition-colors flex items-center gap-2 group">
+            <Link to="https://www.instagram.com/gson_creativity/" target="_blank" className="text-gson-sand/80 hover:text-gson-yellow transition-colors flex items-center gap-2 group">
               <Instagram size={18} className="group-hover:scale-110 transition-transform" />
               <span className="text-xs font-medium uppercase tracking-widest hidden sm:inline">Instagram</span>
             </Link>
-            <Link to="https://www.youtube.com/@gsoncreativity" target="_blank" className="text-gson-sand/60 hover:text-gson-yellow transition-colors flex items-center gap-2 group">
+            <Link to="https://www.youtube.com/@gsoncreativity" target="_blank" className="text-gson-sand/80 hover:text-gson-yellow transition-colors flex items-center gap-2 group">
               <Youtube size={20} className="group-hover:scale-110 transition-transform" />
               <span className="text-xs font-medium uppercase tracking-widest hidden sm:inline">YouTube</span>
             </Link>
@@ -33,7 +33,7 @@ function Footer() {
         </div>
 
         {/* Linha Final: Copyright & Tech Stack */}
-        <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/[0.03] text-[10px] uppercase tracking-[0.2em] text-gson-sand/50">
+        <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/[0.03] text-[10px] uppercase tracking-[0.2em] text-gson-sand/80">
           <p>
             Gson Creativity © {currentYear}. Todos os direitos reservados.
           </p>
