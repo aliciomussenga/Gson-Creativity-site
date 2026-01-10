@@ -39,7 +39,7 @@ function Footer() {
           </p>
           
           <p className="mt-4 md:mt-0">
-            Tech Stack: <span className="text-gson-yellow/50">Developed with passion & code.</span>
+            Tech Stack: <span className="text-gson-yellow/80">Developed with passion & code.</span>
           </p>
         </div>
       </div>
