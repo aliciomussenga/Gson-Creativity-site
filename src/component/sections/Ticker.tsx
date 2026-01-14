@@ -15,7 +15,7 @@ export default function Ticker() {
           0% { transform: translateX(0); }
           100% { transform: translateX(-50%); }
         }
-        .animate-marquee { animation: marquee 9s linear infinite; }
+        .animate-marquee { animation: marquee 20s linear infinite; }
       `}</style>
     </div>
   );
