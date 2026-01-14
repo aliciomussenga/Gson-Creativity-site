@@ -22,11 +22,11 @@ function Footer() {
           {/* Centro: Social Links */}
           <nav className="flex items-center gap-8">
             <Link to="https://www.instagram.com/gson_creativity/" target="_blank" className="text-gson-sand/80 hover:text-gson-yellow transition-colors flex items-center gap-2 group">
-              <Instagram size={18} className="group-hover:scale-110 transition-transform" />
+              <Instagram size={22} className="group-hover:scale-110 transition-transform" />
               <span className="text-xs font-medium uppercase tracking-widest hidden sm:inline">Instagram</span>
             </Link>
             <Link to="https://www.youtube.com/@gsoncreativity" target="_blank" className="text-gson-sand/80 hover:text-gson-yellow transition-colors flex items-center gap-2 group">
-              <Youtube size={20} className="group-hover:scale-110 transition-transform" />
+              <Youtube size={24} className="group-hover:scale-110 transition-transform" />
               <span className="text-xs font-medium uppercase tracking-widest hidden sm:inline">YouTube</span>
             </Link>
           </nav>

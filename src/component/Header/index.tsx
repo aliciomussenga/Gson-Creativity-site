@@ -13,7 +13,7 @@ function Header() {
     { name: "Home", path: "/" },
     { name: "Agência", path: "/Sobre" },
     { name: "Expertise", path: "/Servicos" },
-    { name: "Portifólio", path: "/Obras" },
+    // { name: "Portifólio", path: "/Obras" },
     { name: "Contato", path: "/Contato" },
   ];
 
@@ -28,7 +28,7 @@ function Header() {
 
         {/* DESKTOP NAV */}
         <nav className="hidden md:flex items-center gap-10">
-          {navLinks.slice(0, 4).map((link) => (
+          {navLinks.slice(0, 3).map((link) => (
             <Link
               key={link.path}
               to={link.path}

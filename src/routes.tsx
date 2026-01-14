@@ -6,7 +6,7 @@ import Servicos from "./page/Servicos";
 import Contato from "./page/Contato";
 import Erro from "./page/Erro";
 import Footer from "./component/Footer";
-import Obras from "./page/Obras";
+// import Obras from "./page/Obras";
 
 
 
@@ -18,7 +18,7 @@ function Approutes() {
         <Route path="/" element={<Home/>} />
         <Route path="/sobre" element={<Sobre/>}/>
         <Route path="/servicos" element={<Servicos/>} />
-        <Route path="/obras" element={<Obras/>} />
+        {/* <Route path="/obras" element={<Obras/>} /> */}
         <Route path="/contato" element={<Contato/>}/>
         <Route path="*" element={<Erro/>}/>
       </Routes>
