@@ -20,6 +20,8 @@ function Approutes() {
         <Route path="/servicos" element={<Servicos/>} />
         {/* <Route path="/obras" element={<Obras/>} /> */}
         <Route path="/contato" element={<Contato/>}/>
+
+        
         <Route path="*" element={<Erro/>}/>
       </Routes>
     <Footer/>
