@@ -18,7 +18,7 @@ function Header() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 w-full z-[100] bg-gson-black/80 backdrop-blur-md border-b border-white/5">
+    <header className="fixed top-0 left-0 w-full z-[100] bg-gson-black/90 backdrop-blur-md border-b border-white/5">
       <div className="max-w-7xl mx-auto px-[7%] py-4 flex justify-between items-center">
         
         {/* LOGO */}
@@ -56,7 +56,7 @@ function Header() {
         </button>
 
           {/* MOBILE MENU OVERLAY */}
-        <div className={`fixed  h-60 top-25 inset-0 bg-gson-black transition-all duration-500 ease-in-out z-[100] flex flex-col p-5 mt-3 justify-center gap-8 ${
+        <div className={`fixed h-60 top-24 inset-0  bg-gson-black/90 backdrop-blur-md border-b border-white/5 transition-all duration-500 ease-in-out z-[100] flex flex-col p-5 justify-center gap-8 ${
           isOpen ? "opacity-100 visible" : "opacity-0 invisible"
         }`}>
           {navLinks.map((link) => (
