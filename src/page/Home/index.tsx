@@ -1,7 +1,7 @@
-import Hero from "../../sections/Hero";
-import Ticker from "../../sections/Ticker";
-import Metodo from "../../sections/Metodo";
-import CallToAction from "../../sections/CallToAction";
+import Hero from "../../component/sections/Hero";
+import Ticker from "../../component/sections/Ticker";
+import Metodo from "../../component/sections/Metodo";
+import CallToAction from "../../component/sections/CallToAction";
 
 function Home() {
   return (

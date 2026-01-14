@@ -1,5 +1,5 @@
-import Manifesto from "../../sections/Manifesto";
-import Pilares from "../../sections/Pilares";
+import Manifesto from "../../component/sections/Manifesto";
+import Pilares from "../../component/sections/Pilares";
 
 function Sobre() {
   return (

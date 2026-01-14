@@ -3,56 +3,60 @@ import { ChevronDown } from "lucide-react";
 
 interface CustomSelectProps {
   label: string;
+  name: string;
   options: string[];
-  placeholder?: string;
+  placeholder: string;
 }
 
-export default function CustomSelect({ label, options, placeholder }: CustomSelectProps) {
+export default function CustomSelect({ label, name, options, placeholder }: CustomSelectProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [selected, setSelected] = useState("");
-  const dropdownRef = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
 
-  // Fecha o dropdown se clicar fora dele
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setIsOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    const out = (e: any) => ref.current && !ref.current.contains(e.target) && setIsOpen(false);
+    document.addEventListener("mousedown", out);
+    return () => document.removeEventListener("mousedown", out);
   }, []);
 
   return (
-    <div className="flex flex-col gap-2 w-full relative" ref={dropdownRef}>
-      <label className="text-gson-yellow text-[10px] uppercase tracking-[0.2em] ml-2 font-black">
+    <div className="flex flex-col gap-2 w-full relative" ref={ref}>
+      <label className="text-gson-yellow text-[10px] uppercase tracking-widest ml-2 font-black">
         {label}
       </label>
 
-      {/* Gatilho do Select */}
-      <div
-        onClick={() => setIsOpen(!isOpen)}
-        className={`bg-white/[0.03] border ${isOpen ? 'border-gson-yellow' : 'border-white/10'} rounded-2xl px-6 py-4 text-white cursor-pointer transition-all flex justify-between items-center hover:bg-white/[0.07]`}
+      {/* RETIFICAÇÃO: O input hidden agora tem o atributo 'required'. 
+          O Formspree precisa do 'name' para capturar o valor de 'value'.
+      */}
+      <input 
+        type="hidden" 
+        name={name} 
+        value={selected} 
+        required 
+      />
+      
+      <div 
+        onClick={() => setIsOpen(!isOpen)} 
+        className={`bg-white/[0.03] border ${isOpen ? 'border-gson-yellow' : 'border-white/10'} rounded-2xl px-6 py-4 text-white cursor-pointer flex justify-between items-center hover:bg-white/[0.06] transition-all`}
       >
         <span className={selected ? "text-white" : "text-gson-sand/40"}>
-          {selected || placeholder || "Selecione uma opção"}
+          {selected || placeholder}
         </span>
-        <ChevronDown size={18} className={`text-gson-yellow transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
+        <ChevronDown 
+          size={18} 
+          className={`text-gson-yellow transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} 
+        />
       </div>
 
-      {/* A DIV QUE APARECE (O Menu de Opções) */}
       {isOpen && (
         <ul className="absolute top-[105%] left-0 w-full bg-[#121212] border border-white/10 rounded-2xl overflow-hidden z-50 shadow-2xl animate-in fade-in zoom-in duration-200">
-          {options.map((option) => (
-            <li
-              key={option}
-              onClick={() => {
-                setSelected(option);
-                setIsOpen(false);
-              }}
-              className="px-6 py-4 text-gson-sand hover:bg-gson-yellow hover:text-gson-black transition-colors cursor-pointer font-medium"
+          {options.map((opt: string) => (
+            <li 
+              key={opt} 
+              onClick={() => { setSelected(opt); setIsOpen(false); }} 
+              className="px-6 py-4 text-gson-sand hover:bg-gson-yellow hover:text-gson-black transition-colors cursor-pointer font-bold uppercase text-[10px] tracking-widest"
             >
-              {option}
+              {opt}
             </li>
           ))}
         </ul>
