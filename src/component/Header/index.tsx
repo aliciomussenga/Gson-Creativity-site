@@ -22,9 +22,9 @@ function Header() {
       <div className="max-w-7xl mx-auto px-[7%] py-4 flex justify-between items-center">
         
         {/* LOGO */}
-        <Link to="/" onClick={() => setIsOpen(false)} className="z-[110]">
-          <img src={logo} alt="Gson" className="w-20 md:w-24 h-auto" />
-        </Link>
+        <Link to="/" onClick={() => setIsOpen(false)} className="z-[110] transition-transform hover:scale-105 active:scale-95">
+        <img src={logo} alt="Gson Creativity" className="w-16 sm:w-19 md:w-23 lg:w-25 h-auto object-contain" />
+        </Link> 
 
         {/* DESKTOP NAV */}
         <nav className="hidden md:flex items-center gap-10">
