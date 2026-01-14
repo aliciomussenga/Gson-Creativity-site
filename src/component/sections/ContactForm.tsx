@@ -76,6 +76,7 @@ export default function ContactForm() {
           className="w-full bg-gson-yellow text-gson-black font-black uppercase tracking-[0.2em] py-5 rounded-2xl flex items-center justify-center gap-3 hover:bg-white transition-all disabled:opacity-50"
         >
           {status === "SENDING" ? "Processando..." : "Enviar Mensagem"}
+          <Send size={20} />  
         </button>
 
         {status === "ERROR" && (
