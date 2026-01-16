@@ -8,7 +8,7 @@ import Erro from "./page/Erro";
 import Footer from "./component/Footer";
 // import Obras from "./page/Obras";
 import ScrollToTop from "./component/ScrollToTop";
-import PageTransition from "./component/PageTrasition";
+import PageTransition from "./component/PageTransition";
 
 
 

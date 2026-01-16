@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { ReactNode } from "react";
+// Adicionamos a palavra 'type' antes de ReactNode
+import type { ReactNode } from "react"; 
 
 interface Props {
   children: ReactNode;
@@ -8,9 +9,9 @@ interface Props {
 export default function PageTransition({ children }: Props) {
   return (
     <motion.div
-      initial={{ opacity: 0 }} // Começa invisível
-      animate={{ opacity: 1 }} // Aparece
-      transition={{ duration: 0.5, ease: "easeInOut" }} // Velocidade da transição
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5, ease: "easeInOut" }}
     >
       {children}
     </motion.div>
