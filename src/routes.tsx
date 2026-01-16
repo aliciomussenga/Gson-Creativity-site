@@ -7,12 +7,14 @@ import Contato from "./page/Contato";
 import Erro from "./page/Erro";
 import Footer from "./component/Footer";
 // import Obras from "./page/Obras";
+import ScrollToTop from "./component/ScrollToTop";
 
 
 
 function Approutes() {
   return (
     <BrowserRouter>
+    <ScrollToTop/>
     <Header/>
       <Routes>
         <Route path="/" element={<Home/>} />
