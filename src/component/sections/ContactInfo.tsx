@@ -20,7 +20,7 @@ export default function ContactInfo() {
               {item.icon}
             </div>
             <div>
-              <p className="text-gson-sand/40 text-[10px] uppercase tracking-widest">{item.label}</p>
+              <p className="text-gson-sand/100 text-[10px] uppercase tracking-widest">{item.label}</p>
               <p className="text-white font-medium text-lg">{item.value}</p>
             </div>
           </div>
