@@ -8,6 +8,7 @@ import Erro from "./page/Erro";
 import Footer from "./component/Footer";
 // import Obras from "./page/Obras";
 import ScrollToTop from "./component/ScrollToTop";
+import PageTransition from "./component/PageTrasition";
 
 
 
@@ -17,14 +18,16 @@ function Approutes() {
     <ScrollToTop/>
     <Header/>
       <Routes>
-        <Route path="/" element={<Home/>} />
-        <Route path="/sobre" element={<Sobre/>}/>
-        <Route path="/servicos" element={<Servicos/>} />
-        {/* <Route path="/obras" element={<Obras/>} /> */}
-        <Route path="/contato" element={<Contato/>}/>
+        <Route path="/" element={  <PageTransition><Home/></PageTransition>} />
 
-        
-        <Route path="*" element={<Erro/>}/>
+        <Route path="/sobre" element={<PageTransition><Sobre/></PageTransition>}/>
+        <Route path="/servicos" element={<PageTransition><Servicos/></PageTransition>} />
+        {/* <Route path="/obras" element={<Obras/>} /> */}
+        <Route path="/contato" element={<PageTransition><Contato/></PageTransition>}/>
+
+
+
+        <Route path="*" element={  <PageTransition><Erro/></PageTransition>}/>
       </Routes>
     <Footer/>
     </BrowserRouter>
