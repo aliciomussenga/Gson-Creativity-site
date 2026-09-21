@@ -60,7 +60,7 @@ export default function TechStack() {
                 duration: 450,
                 ease: "outExpo",
             })
-            cleanupFn = () => layout.cancel?.()
+            cleanupFn = () => layout.revert()
         })()
         return () => { cleanupFn?.() }
     }, [active])
