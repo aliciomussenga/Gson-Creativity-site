@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+@theme {
+  --color-gson-black: #0D0D0D;
+  --color-gson-yellow: #F2E30C;
+  --color-gson-gold: #F2B90C;
+  --color-gson-beige: #F2E1AE;
+  --color-gson-sand: #F2DCC9;
+}
+
+@layer base {
+  *:focus-visible {
+    outline: 2px solid var(--color-gson-yellow);
+    outline-offset: 2px;
+  }
+
+  body {
+    background: #fff9de;
+    color: var(--color-gson-black);
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+  }
+
+  .text-glow {
+    text-shadow: 0 0 30px rgba(242,227,12,0.4), 0 0 70px rgba(242,227,12,0.16);
+  }
+}
+
+@layer utilities {
+  .card-glass {
+    background: rgba(25, 25, 30, 0.45);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .contrast-strong {
+    color: #ffffff;
+    background: #101014;
+  }
+}
