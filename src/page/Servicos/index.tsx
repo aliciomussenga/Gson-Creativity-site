@@ -24,14 +24,13 @@ function Servicos() {
             <div className="max-w-7xl mx-auto">
                 <section className="mt-25 mb-20">
                     <h1 className="text-5xl md:text-8xl font-black text-gson-black leading-none tracking-tighter">
-                        O QUE FAZEMOS <br />
-                        <span className="text-transparent border-text">
-                            DE MELHOR.
-                        </span>
+                        O QUE PODEMOS <br />
+                        <span className="text-transparent border-text">CONSTRUIR JUNTOS.</span>
                     </h1>
                     <p className="mt-5 text-gson-black/70 text-lg md:text-xl max-w-3xl">
-                        Explora as áreas abaixo. Abre um serviço para ver o que podemos conversar e marca os que fazem sentido para a tua ideia.
+                        Cada projecto começa num contexto diferente. Explora as áreas abaixo, entende como pensamos e selecciona o que faz sentido para a tua conversa connosco.
                     </p>
+                    <p className="mt-6 max-w-2xl border-l-2 border-gson-yellow pl-4 text-sm leading-relaxed text-gson-black/55">Não trabalhamos com promessas universais nem pacotes fechados: o caminho, o âmbito e os prazos são definidos depois de compreender o desafio.</p>
                 </section>
 
                 <ServiceGrid onSelect={showCaseStudy} />

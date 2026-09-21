@@ -33,16 +33,16 @@ const timelines = [
 
 const faqs = [
     {
-        q: "Trabalham com startups sem capital inicial?",
-        a: "Sim. Temos planos adaptados a diferentes estágios. O mais importante é a ideia e o comprometimento.",
+        q: "Posso falar convosco se a ideia ainda está no início?",
+        a: "Sim. A primeira conversa serve exactamente para perceber o problema, o objectivo e o que é mais importante fazer primeiro.",
     },
     {
-        q: "Quanto tempo demora um projecto típico?",
-        a: "Depende da complexidade. Uma landing page pode ficar pronta em 1–2 semanas. Um app mobile completo leva entre 2 e 4 meses.",
+        q: "Quanto tempo demora um projecto?",
+        a: "Depende do âmbito, das integrações e das decisões necessárias. Partilhamos uma estimativa responsável depois de entender o contexto e priorizar o escopo.",
     },
     {
-        q: "Trabalham apenas em Angola?",
-        a: "Não. Trabalhamos remotamente com clientes de toda a África, Portugal e Brasil.",
+        q: "Como funciona a colaboração?",
+        a: "Podemos começar por WhatsApp, e-mail ou uma conversa de alinhamento. Definimos a melhor forma de acompanhar o projecto em conjunto.",
     },
     {
         q: "O que acontece depois que eu enviar o formulário?",
