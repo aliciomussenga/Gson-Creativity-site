@@ -52,7 +52,7 @@ function MetricCard({ m, i }: { m: typeof metrics[0]; i: number }) {
         if (!el) return
         let cleanupFn: (() => void) | null = null
         ;(async () => {
-            const { animate, onScroll, utils } = await import("animejs")
+            const { animate, onScroll } = await import("animejs")
             const isDecimal = m.target % 1 !== 0
             const proxy = { val: 0 }
 

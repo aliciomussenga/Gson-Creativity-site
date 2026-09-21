@@ -88,7 +88,7 @@ export default function HeroCanvas() {
         let animeCleanup: (() => void)[] = []
 
         ;(async () => {
-            const { animate, createTimer, stagger } = await import("animejs")
+            const { animate, stagger } = await import("animejs")
             const { getInstances } = await import("animejs/adapters/three")
 
             // Intro: explode in from center using per-instance stagger
@@ -153,13 +153,13 @@ export default function HeroCanvas() {
 
             // Per-instance random float — each cube gets its own subtle Y drift
             animate(instY, {
-                y: (_, i) => (Math.random() - 0.5) * 0.3,
+                y: () => (Math.random() - 0.5) * 0.3,
                 duration: () => 2500 + Math.random() * 2000,
                 delay: stagger(80),
                 loop: true, alternate: true, ease: "inOutSine",
             })
             animate(instD, {
-                y: (_, i) => (Math.random() - 0.5) * 0.3,
+                y: () => (Math.random() - 0.5) * 0.3,
                 duration: () => 2500 + Math.random() * 2000,
                 delay: stagger(80, { start: 40 }),
                 loop: true, alternate: true, ease: "inOutSine",

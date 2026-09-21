@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react"
+import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { MapPin, Navigation, ExternalLink, Copy, Check, Building2, Clock, Coffee } from "lucide-react"
 
@@ -6,20 +6,6 @@ import { MapPin, Navigation, ExternalLink, Copy, Check, Building2, Clock, Coffee
 const COORDS = { lat: -8.9167, lng: 13.2167 }
 const ADDRESS = "Talatona, Luanda Sul, Angola"
 const GMAPS_LINK = `https://www.google.com/maps/search/?api=1&query=${COORDS.lat},${COORDS.lng}`
-
-// The Snazzy Map style JSON (for reference — applied via iframe URL encoding)
-const MAP_STYLE_ENCODED = encodeURIComponent(JSON.stringify([
-    { featureType: "all", elementType: "geometry", stylers: [{ color: "#dcdc5a" }] },
-    { featureType: "all", elementType: "labels.text.fill", stylers: [{ gamma: 0.01 }, { lightness: 20 }] },
-    { featureType: "all", elementType: "labels.text.stroke", stylers: [{ saturation: -31 }, { lightness: -33 }, { weight: 2 }, { gamma: 0.8 }] },
-    { featureType: "all", elementType: "labels.icon", stylers: [{ visibility: "off" }] },
-    { featureType: "landscape", elementType: "geometry", stylers: [{ lightness: 30 }, { saturation: 30 }] },
-    { featureType: "poi", elementType: "geometry", stylers: [{ saturation: 20 }] },
-    { featureType: "poi.park", elementType: "geometry", stylers: [{ lightness: 20 }, { saturation: -20 }] },
-    { featureType: "road", elementType: "geometry", stylers: [{ lightness: 10 }, { saturation: -30 }] },
-    { featureType: "road", elementType: "geometry.stroke", stylers: [{ saturation: 25 }, { lightness: 25 }] },
-    { featureType: "water", elementType: "all", stylers: [{ lightness: -20 }] },
-]))
 
 const nearbyPoints = [
     { emoji: "🏢", name: "Centro Convenções Talatona", dist: "2 min a pé" },
@@ -131,9 +117,7 @@ function StaticMapFallback() {
 
 export default function GsonMap() {
     const [copied, setCopied] = useState(false)
-    const [mapLoaded, setMapLoaded] = useState(false)
-    const [useEmbed, setUseEmbed] = useState(false)
-    const iframeRef = useRef<HTMLIFrameElement>(null)
+    const [mapImageFailed, setMapImageFailed] = useState(false)
 
     const copyAddress = () => {
         navigator.clipboard.writeText(ADDRESS)
@@ -190,12 +174,17 @@ export default function GsonMap() {
                     >
                         {/* Mapa real de Talatona com estilo Gson */}
                         <div className="absolute inset-0">
-                            <img
-                                src="/map-talatona.png"
-                                alt="Mapa de Talatona, Luanda — Gson Creativity"
-                                className="w-full h-full object-cover"
-                                style={{ filter: "brightness(0.75) saturate(1.1)" }}
-                            />
+                            {mapImageFailed ? (
+                                <StaticMapFallback />
+                            ) : (
+                                <img
+                                    src="/map-talatona.png"
+                                    alt="Mapa de Talatona, Luanda — Gson Creativity"
+                                    className="w-full h-full object-cover"
+                                    style={{ filter: "brightness(0.75) saturate(1.1)" }}
+                                    onError={() => setMapImageFailed(true)}
+                                />
+                            )}
                             {/* Vignette overlay */}
                             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(13,13,13,0.6)_100%)]" />
                         </div>

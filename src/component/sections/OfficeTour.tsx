@@ -2,9 +2,9 @@ import { useState, useEffect, useRef, useCallback } from "react"
 import { motion, AnimatePresence, useMotionValue, useTransform } from "framer-motion"
 import {
     DoorOpen, Coffee, Code2, Users, Rocket, ArrowRight,
-    Monitor, Wifi, Volume2, Star, MapPin, Clock,
+    MapPin, Clock,
     ChevronLeft, ChevronRight, Zap, Award, MessageSquare,
-    Play, SkipForward
+    Play
 } from "lucide-react"
 import { Link } from "react-router-dom"
 
@@ -339,7 +339,6 @@ export default function OfficeTour() {
     const [guideStep, setGuideStep] = useState(0)
     const [interactionMsg, setInteractionMsg] = useState<string | null>(null)
     const [interactionHistory, setInteractionHistory] = useState<string[]>([])
-    const [showMap, setShowMap] = useState(false)
     const [visitedRooms, setVisitedRooms] = useState<Set<number>>(new Set([0]))
     const guideTimers = useRef<NodeJS.Timeout[]>([])
     const scrollRef = useRef<HTMLDivElement>(null)
