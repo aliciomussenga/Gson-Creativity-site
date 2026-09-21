@@ -1,6 +1,7 @@
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion"
 import { useEffect, useMemo, useRef } from "react"
 import type { Dispatch, SetStateAction } from "react"
+import { Link } from "react-router-dom"
 
 interface ServiceModalProps {
     open: boolean
@@ -112,7 +113,7 @@ export default function ServiceModal({
                     >
                         <button
                             onClick={() => onClose(false)}
-                            aria-label="Fechar popup de case study"
+                            aria-label="Fechar detalhes do serviço"
                             className="absolute top-4 right-4 text-gson-sand/70 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-gson-yellow"
                         >
                             ✕
@@ -129,22 +130,13 @@ export default function ServiceModal({
                         </p>
 
                         <ul className="space-y-2 text-gson-sand/80">
-                            <li>• Planejamento de escopo em 48h</li>
-                            <li>• MVP entregável em 2 semanas</li>
-                            <li>
-                                • Revisões ilimitadas nas primeiras 2 semanas
-                            </li>
-                            <li>
-                                • Integração com monitoramento e métricas de uso
-                            </li>
+                            <li>• Contexto, objectivos e pessoas que vão usar</li>
+                            <li>• Escopo priorizado de acordo com o momento do projecto</li>
+                            <li>• Forma de colaboração e entregas que façam sentido</li>
+                            <li>• Próximos passos definidos depois de uma conversa inicial</li>
                         </ul>
 
-                        <button
-                            onClick={() => onClose(false)}
-                            className="mt-6 bg-gson-yellow text-gson-black py-3 px-6 rounded-full font-bold uppercase hover:bg-gson-gold focus-visible:outline focus-visible:outline-2 focus-visible:outline-gson-yellow"
-                        >
-                            Começar projeto agora
-                        </button>
+                        <Link to="/contato" onClick={() => onClose(false)} className="mt-6 inline-block bg-gson-yellow text-gson-black py-3 px-6 rounded-full font-bold uppercase hover:bg-gson-gold focus-visible:outline focus-visible:outline-2 focus-visible:outline-gson-yellow">Falar sobre este serviço</Link>
                     </motion.div>
                 </motion.div>
             )}

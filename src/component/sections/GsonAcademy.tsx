@@ -1,224 +1,53 @@
-import { BookOpen, Users, Zap, Award, Smartphone, Star, Download } from "lucide-react"
-import { motion } from "framer-motion"
+import { useState } from "react"
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion"
+import { ArrowRight, BrainCircuit, Building2, ChevronLeft, ChevronRight, Download, Globe2, Play, Sparkles, Target } from "lucide-react"
 
-const academyFeatures = [
-    {
-        icon: <BookOpen size={32} className="stroke-current" />,
-        title: "Cursos em Áudio",
-        desc: "Aprende em movimento — no trânsito, caminhada ou descanso. Conteúdo prático em formato podcast.",
-    },
-    {
-        icon: <Users size={32} className="stroke-current" />,
-        title: "Mentoria Directa",
-        desc: "Aulas ao vivo com especialistas da Gson Creativity. Feedback real, não teoria.",
-    },
-    {
-        icon: <Zap size={32} className="stroke-current" />,
-        title: "Projectos Reais",
-        desc: "Deploy em produção, experiência imediata e portfólio que impressiona.",
-    },
-    {
-        icon: <Award size={32} className="stroke-current" />,
-        title: "100% Gratuito",
-        desc: "Conteúdo de qualidade acessível a todos. Sem barreiras ao conhecimento.",
-    },
+const stories = [
+    { image: "/gson-academy/tutor-ia.webp", alt: "Gson Academy: tutor com inteligência artificial", eyebrow: "Tutor IA", title: "Aprendizagem que acompanha o teu ritmo.", description: "Um tutor inteligente para explicar, praticar e criar o teu plano de estudo.", icon: BrainCircuit },
+    { image: "/gson-academy/educacao-global.webp", alt: "Gson Academy: educação sem fronteiras", eyebrow: "Visão global", title: "Talento local, alcance sem fronteiras.", description: "Tecnologia e formação prática criadas em Angola para chegar mais longe.", icon: Globe2 },
+    { image: "/gson-academy/empresas.webp", alt: "Gson Academy: formação de equipas empresariais", eyebrow: "Para empresas", title: "Equipas capacitadas transformam negócios.", description: "Programas de formação estratégica para competências que geram impacto real.", icon: Building2 },
+    { image: "/gson-academy/dados.webp", alt: "Gson Academy: aprendizagem baseada em dados", eyebrow: "Resultados reais", title: "Decisões melhores começam por aprender melhor.", description: "Uma experiência educativa que evolui com dados, prática e resultados.", icon: Target },
+    { image: "/gson-academy/equipa.webp", alt: "Gson Academy: soluções para equipas", eyebrow: "Desenvolvimento", title: "Potencia a tua equipa.", description: "Capacitação alinhada aos desafios reais de cada organização.", icon: Building2 },
+    { image: "/gson-academy/aprendizagem.webp", alt: "Gson Academy: aprendizagem inteligente", eyebrow: "Personalização", title: "Um percurso tão único quanto tu.", description: "Conteúdo e prática orientados para desbloquear o teu próximo nível.", icon: Sparkles },
 ]
 
-const stats = [
-    { value: "450+", label: "Horas de conteúdo" },
-    { value: "80+", label: "Alunos activos" },
-    { value: "8", label: "Turmas em curso" },
-    { value: "4", label: "Trilhas de carreira" },
-]
+const highlights = [["450+", "horas de conteúdo"], ["80+", "alunos activos"], ["4", "trilhas de carreira"]]
+const storeUrl = "https://play.google.com/store/apps/details?id=com.gson.academia&pcampaignid=web_share"
 
 export default function GsonAcademy() {
+    const [activeStory, setActiveStory] = useState(0)
+    const prefersReducedMotion = useReducedMotion()
+    const story = stories[activeStory]
+    const StoryIcon = story.icon
+    const selectStory = (index: number) => setActiveStory((index + stories.length) % stories.length)
+
     return (
-        <motion.section
-            className="py-32 px-[7%] border-t border-white/5 bg-gradient-to-b from-[#0d0d0d] via-[#0a0a10] to-[#0d0d0d] overflow-hidden"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.8 }}
-        >
-            <div className="max-w-6xl mx-auto">
-                {/* Header */}
-                <div className="text-center mb-16">
-                    <motion.p
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.1 }}
-                        className="text-gson-yellow uppercase tracking-widest text-sm mb-4 flex items-center justify-center gap-2"
-                    >
-                        <Smartphone size={14} />
-                        Agora na Play Store
-                    </motion.p>
-                    <motion.h2
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.2 }}
-                        className="text-4xl md:text-6xl font-black text-white leading-tight"
-                    >
-                        GSON <span className="text-gson-yellow">ACADEMY</span>
-                    </motion.h2>
-                    <motion.p
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.3 }}
-                        className="text-gson-sand/80 text-xl mt-6 max-w-3xl mx-auto"
-                    >
-                        A plataforma de educação tech focada no mercado africano.
-                        Aprende Backend, DevOps e Arquitectura de Sistemas — onde quiseres.
-                    </motion.p>
+        <section id="academy" className="relative overflow-hidden bg-[#050911] py-24 text-white sm:py-32">
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_12%_20%,rgba(242,185,12,0.18),transparent_34%),radial-gradient(ellipse_at_85%_72%,rgba(29,78,216,0.20),transparent_38%)]" />
+            <div className="pointer-events-none absolute inset-0 opacity-30 [background-image:linear-gradient(rgba(255,255,255,.055)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.055)_1px,transparent_1px)] [background-size:54px_54px]" />
+
+            <div className="relative mx-auto max-w-7xl px-[7%]">
+                <div className="mb-12 flex flex-col justify-between gap-8 lg:mb-16 lg:flex-row lg:items-end">
+                    <div className="max-w-3xl"><div className="mb-5 flex items-center gap-3 text-gson-yellow"><span className="h-px w-10 bg-current" /><span className="text-xs font-black uppercase tracking-[0.32em]">Uma criação Gson</span></div><h2 className="text-4xl font-black leading-[0.95] tracking-tight sm:text-6xl lg:text-7xl">Aprender também é<br /><span className="text-gson-yellow">abrir caminhos.</span></h2></div>
+                    <p className="max-w-sm text-base leading-relaxed text-white/65 sm:text-lg">A Gson Academy combina tecnologia, prática e pessoas que querem avançar juntas.</p>
                 </div>
 
-                {/* Main content — app showcase + features */}
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center mb-16">
-                    {/* Phone mockup */}
-                    <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.2 }}
-                        className="lg:col-span-4 flex justify-center"
-                    >
-                        <div className="relative">
-                            {/* Glow */}
-                            <div className="absolute inset-0 bg-gson-yellow/10 rounded-[40px] blur-3xl scale-90" />
-                            {/* Phone shell */}
-                            <div className="relative w-56 rounded-[36px] bg-gradient-to-b from-[#1a1a20] to-[#0d0d12] border border-white/15 shadow-2xl overflow-hidden" style={{ aspectRatio: '9/19' }}>
-                                {/* Notch */}
-                                <div className="w-20 h-5 bg-[#0d0d12] rounded-b-2xl mx-auto" />
-                                {/* App UI mockup */}
-                                <div className="px-4 py-3">
-                                    <div className="flex items-center gap-2 mb-4">
-                                        <div className="w-7 h-7 rounded-lg bg-gson-yellow flex items-center justify-center">
-                                            <BookOpen size={14} className="text-gson-black" />
-                                        </div>
-                                        <span className="text-white text-xs font-bold">Gson Academy</span>
-                                        <div className="ml-auto flex items-center gap-0.5">
-                                            {[...Array(5)].map((_, i) => (
-                                                <Star key={i} size={8} className="fill-gson-yellow text-gson-yellow" />
-                                            ))}
-                                        </div>
-                                    </div>
+                <div className="grid gap-5 lg:grid-cols-[minmax(0,1.3fr)_minmax(300px,.7fr)]">
+                    <div className="relative min-h-[570px] overflow-hidden rounded-[2rem] border border-white/10 bg-[#091323] shadow-2xl shadow-black/40 sm:min-h-[650px]">
+                        <AnimatePresence mode="wait"><motion.img key={story.image} src={story.image} alt={story.alt} className="absolute inset-0 h-full w-full object-cover object-center" initial={prefersReducedMotion ? false : { opacity: 0, scale: 1.05 }} animate={{ opacity: 1, scale: 1 }} exit={prefersReducedMotion ? undefined : { opacity: 0, scale: 0.98 }} transition={{ duration: 0.45 }} /></AnimatePresence>
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#03060c] via-[#03060c]/25 to-transparent" />
+                        <div className="absolute inset-x-0 bottom-0 p-6 sm:p-10"><motion.div key={story.title} initial={prefersReducedMotion ? false : { opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.12 }} className="max-w-xl"><div className="mb-4 flex items-center gap-3 text-gson-yellow"><span className="flex h-10 w-10 items-center justify-center rounded-full border border-gson-yellow/40 bg-gson-yellow/10"><StoryIcon size={19} /></span><span className="text-xs font-black uppercase tracking-[0.25em]">{story.eyebrow}</span></div><h3 className="text-3xl font-black leading-tight sm:text-5xl">{story.title}</h3><p className="mt-4 max-w-lg text-sm leading-relaxed text-white/75 sm:text-base">{story.description}</p></motion.div></div>
+                        <div className="absolute right-5 top-5 flex gap-2"><button type="button" onClick={() => selectStory(activeStory - 1)} className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-gson-black/45 text-white backdrop-blur transition hover:border-gson-yellow hover:text-gson-yellow" aria-label="História anterior"><ChevronLeft size={20} /></button><button type="button" onClick={() => selectStory(activeStory + 1)} className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-gson-black/45 text-white backdrop-blur transition hover:border-gson-yellow hover:text-gson-yellow" aria-label="Próxima história"><ChevronRight size={20} /></button></div>
+                    </div>
 
-                                    {/* Course cards */}
-                                    {[
-                                        { title: "Backend com Python", progress: 72, color: "bg-gson-yellow" },
-                                        { title: "DevOps Essentials", progress: 45, color: "bg-gson-gold" },
-                                        { title: "System Design", progress: 20, color: "bg-white/40" },
-                                    ].map((course, i) => (
-                                        <motion.div
-                                            key={i}
-                                            initial={{ opacity: 0, x: -10 }}
-                                            whileInView={{ opacity: 1, x: 0 }}
-                                            viewport={{ once: true }}
-                                            transition={{ delay: 0.4 + i * 0.1 }}
-                                            className="mb-3 bg-white/5 rounded-xl p-3 border border-white/8"
-                                        >
-                                            <p className="text-white text-[10px] font-bold mb-2">{course.title}</p>
-                                            <div className="h-1 bg-white/10 rounded-full overflow-hidden">
-                                                <motion.div
-                                                    initial={{ width: 0 }}
-                                                    whileInView={{ width: `${course.progress}%` }}
-                                                    viewport={{ once: true }}
-                                                    transition={{ delay: 0.6 + i * 0.1, duration: 0.8 }}
-                                                    className={`h-full rounded-full ${course.color}`}
-                                                />
-                                            </div>
-                                            <p className="text-gson-sand/40 text-[9px] mt-1">{course.progress}% completo</p>
-                                        </motion.div>
-                                    ))}
-
-                                    {/* Now playing */}
-                                    <div className="mt-4 bg-gson-yellow/10 border border-gson-yellow/20 rounded-xl p-3">
-                                        <p className="text-gson-yellow text-[9px] uppercase tracking-widest mb-1">A ouvir agora</p>
-                                        <p className="text-white text-[10px] font-bold">Ep. 12 — APIs RESTful</p>
-                                        <div className="flex items-center gap-2 mt-2">
-                                            <div className="flex-1 h-1 bg-white/10 rounded-full overflow-hidden">
-                                                <div className="w-2/5 h-full bg-gson-yellow rounded-full" />
-                                            </div>
-                                            <span className="text-gson-sand/40 text-[9px]">8:43</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </motion.div>
-
-                    {/* Right side — features + CTA */}
-                    <div className="lg:col-span-8">
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-                            {academyFeatures.map((feature, index) => (
-                                <motion.article
-                                    key={index}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: index * 0.1 }}
-                                    whileHover={{ y: -4, scale: 1.01 }}
-                                    className="card-glass p-5 rounded-2xl border border-white/10 flex gap-4 items-start"
-                                >
-                                    <div className="text-gson-yellow flex-shrink-0 mt-0.5">
-                                        {feature.icon}
-                                    </div>
-                                    <div>
-                                        <h3 className="text-white font-bold text-base mb-1">{feature.title}</h3>
-                                        <p className="text-gson-sand/70 text-sm leading-relaxed">{feature.desc}</p>
-                                    </div>
-                                </motion.article>
-                            ))}
-                        </div>
-
-                        {/* Stats */}
-                        <div className="grid grid-cols-4 gap-3 mb-8">
-                            {stats.map((stat, i) => (
-                                <motion.div
-                                    key={i}
-                                    initial={{ opacity: 0, y: 10 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: 0.2 + i * 0.08 }}
-                                    className="text-center"
-                                >
-                                    <p className="text-gson-yellow font-black text-2xl">{stat.value}</p>
-                                    <p className="text-gson-sand/50 text-xs mt-0.5">{stat.label}</p>
-                                </motion.div>
-                            ))}
-                        </div>
-
-                        {/* Download CTA */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 10 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.4 }}
-                            className="flex flex-wrap items-center gap-4"
-                        >
-                            <a
-                                href="https://play.google.com/store/apps/details?id=com.gson.academia&pcampaignid=web_share"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="flex items-center gap-3 bg-gson-yellow text-gson-black px-6 py-3.5 rounded-full font-bold uppercase tracking-widest hover:bg-gson-gold transition-all group"
-                            >
-                                <Download size={18} className="group-hover:scale-110 transition-transform" />
-                                Download na Play Store
-                            </a>
-                            <div className="flex items-center gap-2">
-                                <div className="flex">
-                                    {['🇦🇴','🇵🇹','🇧🇷','🇲🇿'].map((flag, i) => (
-                                        <span key={i} className="text-lg -ml-1 first:ml-0">{flag}</span>
-                                    ))}
-                                </div>
-                                <span className="text-gson-sand/50 text-xs">Disponível em Angola e PALOP</span>
-                            </div>
-                        </motion.div>
+                    <div className="flex flex-col gap-3">
+                        <div className="rounded-[2rem] border border-gson-yellow/25 bg-gson-yellow p-7 text-gson-black sm:p-8"><div className="mb-10 flex items-start justify-between gap-3"><div><div className="mb-3 flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em]"><Sparkles size={15} /> Gson Academy</div><p className="text-2xl font-black leading-tight">Aprende. Cria. Transforma.</p></div><div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gson-black text-gson-yellow"><Play size={18} fill="currentColor" /></div></div><a href={storeUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-gson-black px-5 py-3 text-xs font-black uppercase tracking-widest text-white transition hover:scale-[1.03]">Explorar a app <ArrowRight size={15} /></a></div>
+                        <div className="grid grid-cols-3 gap-3 rounded-[2rem] border border-white/10 bg-white/[0.045] p-5 backdrop-blur sm:p-6">{highlights.map(([value, label]) => <div key={label} className="text-center"><p className="text-xl font-black text-gson-yellow sm:text-2xl">{value}</p><p className="mt-1 text-[10px] leading-tight text-white/55 sm:text-xs">{label}</p></div>)}</div>
+                        <div className="grid grid-cols-2 gap-3">{stories.map((item, index) => <button type="button" key={item.image} onClick={() => selectStory(index)} aria-pressed={activeStory === index} className={`group relative aspect-[1.05] overflow-hidden rounded-2xl border text-left transition ${activeStory === index ? "border-gson-yellow ring-2 ring-gson-yellow/35" : "border-white/10 hover:border-white/50"}`}><img src={item.image} alt="" className="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" /><div className="absolute inset-0 bg-gradient-to-t from-[#02050a]/90 via-transparent to-transparent" /><span className="absolute bottom-3 left-3 text-[10px] font-black uppercase tracking-[0.14em] text-white">0{index + 1} · {item.eyebrow}</span></button>)}</div>
                     </div>
                 </div>
+                <div className="mt-8 flex flex-col gap-4 rounded-3xl border border-white/10 bg-white/[0.035] p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6"><p className="text-sm text-white/70"><span className="font-bold text-white">Feita para quem quer avançar.</span> Formação digital com contexto, prática e propósito.</p><a href={storeUrl} target="_blank" rel="noopener noreferrer" className="inline-flex shrink-0 items-center gap-2 text-xs font-black uppercase tracking-widest text-gson-yellow hover:text-white transition"><Download size={16} /> Download na Play Store</a></div>
             </div>
-        </motion.section>
+        </section>
     )
 }

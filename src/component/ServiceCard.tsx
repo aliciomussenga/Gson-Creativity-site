@@ -6,12 +6,12 @@ interface ServiceCardProps {
   title: string;
   description: string;
   index: number;
-  interestCount: number;
-  onInterest: () => void;
+  selected: boolean;
+  onSelect: () => void;
   onCaseStudy: () => void;
 }
 
-export default function ServiceCard({ icon: Icon, title, description, index, interestCount, onInterest, onCaseStudy }: ServiceCardProps) {
+export default function ServiceCard({ icon: Icon, title, description, index, selected, onSelect, onCaseStudy }: ServiceCardProps) {
   return (
     <motion.div
       whileHover={{ y: -7 }}
@@ -39,18 +39,19 @@ export default function ServiceCard({ icon: Icon, title, description, index, int
 
       <div className="mt-6 flex flex-wrap gap-2 items-center">
         <button
-          onClick={onInterest}
-          aria-label={`Demonstrar interesse em ${title}`}
-          className="text-sm px-4 py-2 rounded-full font-bold bg-gson-yellow text-gson-black hover:bg-gson-gold focus-visible:outline focus-visible:outline-2 focus-visible:outline-gson-yellow transition transform active:scale-95"
+          onClick={onSelect}
+          aria-label={`${selected ? "Remover" : "Adicionar"} ${title} à conversa`}
+          aria-pressed={selected}
+          className={`text-sm px-4 py-2 rounded-full font-bold focus-visible:outline focus-visible:outline-2 focus-visible:outline-gson-yellow transition transform active:scale-95 ${selected ? "bg-gson-black text-white" : "bg-gson-yellow text-gson-black hover:bg-gson-gold"}`}
         >
-          Interessado ({interestCount})
+          {selected ? "Na conversa ✓" : "Adicionar à conversa"}
         </button>
         <button
           onClick={onCaseStudy}
           aria-label={`Abrir caso de estudo de ${title}`}
           className="text-sm px-4 py-2 rounded-full font-bold border border-gson-black/20 text-gson-black hover:bg-gson-black hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-gson-yellow transition"
         >
-          Case Study
+          Como abordamos
         </button>
       </div>
 
