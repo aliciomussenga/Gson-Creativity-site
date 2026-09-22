@@ -2,6 +2,7 @@ import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ArrowRight, Eye, Handshake, LayoutPanelTop, MessageCircle, PanelsTopLeft } from "lucide-react"
 import { Link } from "react-router-dom"
+import SyncedObject3D from "../SyncedObject3D"
 
 const spaces = [
     {
@@ -26,7 +27,8 @@ export default function OpenStudio() {
     const space = spaces.find((item) => item.id === active) ?? spaces[0]
 
     return (
-        <section className="py-28 px-[7%] bg-gson-yellow" aria-labelledby="open-studio-title">
+        <section className="relative overflow-hidden py-28 px-[7%] bg-gson-yellow" aria-labelledby="open-studio-title">
+            <SyncedObject3D object="signatureGrid" light className="-left-12 bottom-8 h-44 w-44 opacity-50 sm:left-3 sm:h-56 sm:w-56" />
             <div className="max-w-6xl mx-auto">
                 <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-7 mb-12">
                     <div className="max-w-2xl">

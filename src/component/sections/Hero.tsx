@@ -59,8 +59,8 @@ export default function Hero() {
             className="relative min-h-screen flex items-center px-[7%] pt-28 md:pt-32 overflow-hidden"
         >
                 <HeroCanvas />
-                {/* Gradient to keep text readable over 3D */}
-                <div className="absolute inset-0 bg-gradient-to-r from-gson-black/85 via-gson-black/50 to-transparent pointer-events-none z-[1]" />
+                {/* Gradient keeps copy readable while leaving the 3D object visible. */}
+                <div className="absolute inset-0 bg-gradient-to-r from-gson-black via-gson-black/72 to-gson-black/10 pointer-events-none z-[1]" />
             {/* Parallax background glow */}
             <motion.div
                 style={{ x: bgX, y: bgY }}
@@ -68,7 +68,7 @@ export default function Hero() {
             >
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(242,227,12,0.35),transparent_45%),radial-gradient(circle_at_90%_90%,rgba(255,255,255,0.09),transparent_55%)]" />
             </motion.div>
-            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(13,13,13,0.85),rgba(13,13,13,0.82))]" />
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(13,13,13,0.18),rgba(13,13,13,0.44))] pointer-events-none z-[1]" />
 
             {/* Floating ambient orbs */}
             {!prefersReducedMotion && (
@@ -192,6 +192,7 @@ export default function Hero() {
             )}
 
             <style>{`.border-text { -webkit-text-stroke: 1px #F2E30C; }`}</style>
+            <p className="absolute right-[7%] bottom-10 z-10 hidden md:block text-[10px] uppercase tracking-[0.28em] text-gson-sand/50 pointer-events-none">Arraste o objeto · clique para expandir</p>
         </motion.section>
     )
 }

@@ -2,6 +2,7 @@ import { useState } from "react"
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion"
 import { ArrowRight, HeartHandshake, MessageCircle, Sparkles, UsersRound } from "lucide-react"
 import { Link } from "react-router-dom"
+import SyncedObject3D from "../SyncedObject3D"
 
 const conversations = [
     {
@@ -38,6 +39,7 @@ export default function HumanConnection() {
 
     return (
         <section className="relative overflow-hidden bg-white py-24 sm:py-32" aria-labelledby="human-connection-title">
+            <SyncedObject3D object="wordmark" light className="-right-8 bottom-12 h-44 w-44 opacity-70 sm:right-8 sm:h-56 sm:w-56" />
             <div className="pointer-events-none absolute -right-28 top-8 h-80 w-80 rounded-full bg-gson-yellow/20 blur-3xl" />
             <div className="relative mx-auto grid max-w-6xl gap-12 px-[7%] lg:grid-cols-12 lg:items-center">
                 <div className="lg:col-span-5">

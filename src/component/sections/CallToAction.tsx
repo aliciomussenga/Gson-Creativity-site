@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom"
 import { motion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
+import SyncedObject3D from "../SyncedObject3D"
 
 export default function CallToAction() {
     return (
         <section className="py-32 px-[7%] bg-gson-black relative overflow-hidden">
+            <SyncedObject3D object="wordmark" className="right-[5%] top-8 h-40 w-40 opacity-60 sm:h-64 sm:w-64" />
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_100%,rgba(242,227,12,0.22),transparent_60%)]" />
 
             <div className="max-w-4xl mx-auto relative">
