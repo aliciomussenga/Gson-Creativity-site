@@ -11,6 +11,7 @@ import ScrollToTop from "./component/ScrollToTop";
 import CustomCursor from "./component/CustomCursor";
 import PageTransition from "./component/PageTransition";
 import ExperienceDock from "./component/ExperienceDock";
+import GsonCommandPalette from "./component/GsonCommandPalette";
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -35,6 +36,7 @@ function Approutes() {
       <ScrollToTop />
       <Header />
       <ExperienceDock />
+      <GsonCommandPalette />
       <AnimatedRoutes />
       <Footer />
     </BrowserRouter>
