@@ -10,7 +10,7 @@ import HumanConnection from "../../component/sections/HumanConnection"
 
 function Home() {
     return (
-        <div className="bg-[#fff9de] overflow-x-hidden pt-18 relative">
+        <div className="bg-[#fff9de] overflow-x-hidden pt-24 relative">
             <Hero />
             <Ticker />
             <HumanConnection />

@@ -192,7 +192,7 @@ export default function Hero() {
             )}
 
             <style>{`.border-text { -webkit-text-stroke: 1px #F2E30C; }`}</style>
-            <p className="absolute right-[7%] bottom-10 z-10 hidden md:block text-[10px] uppercase tracking-[0.28em] text-gson-sand/50 pointer-events-none">Arraste o objeto · clique para expandir</p>
+            <p className="absolute right-[7%] bottom-10 z-10 hidden md:block text-[10px] uppercase tracking-[0.28em] text-gson-sand/50 pointer-events-none">Arraste o cubo · clique para expandir</p>
         </motion.section>
     )
 }

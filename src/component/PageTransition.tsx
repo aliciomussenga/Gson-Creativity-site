@@ -11,10 +11,10 @@ export default function PageTransition({ children }: Props) {
     return (
         <motion.div
             initial={
-                reduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+                reduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 14, scale: 0.992 }
             }
-            animate={{ opacity: 1, y: 0 }}
-            exit={reduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={reduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: -14, scale: 0.992 }}
             transition={{
                 duration: reduceMotion ? 0 : 0.45,
                 ease: "easeInOut",
