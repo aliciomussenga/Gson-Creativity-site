@@ -1,6 +1,7 @@
 import { useState } from "react"
 import ServiceGrid from "../../component/ServiceGrid"
 import ServiceModal from "../../component/ServiceModal"
+import SyncedObject3D from "../../component/SyncedObject3D"
 
 function Servicos() {
     const [modalOpen, setModalOpen] = useState(false)
@@ -20,7 +21,8 @@ function Servicos() {
     }
 
     return (
-        <main className="bg-[#fff9de] min-h-screen pt-32 pb-20 px-[7%]">
+        <main className="relative overflow-hidden bg-[#fff9de] min-h-screen pt-32 pb-20 px-[7%]">
+            <SyncedObject3D object="signatureGrid" light className="right-[4%] top-24 h-36 w-36 opacity-55 md:h-56 md:w-56" />
             <div className="max-w-7xl mx-auto">
                 <section className="mt-25 mb-20">
                     <h1 className="text-5xl md:text-8xl font-black text-gson-black leading-none tracking-tighter">

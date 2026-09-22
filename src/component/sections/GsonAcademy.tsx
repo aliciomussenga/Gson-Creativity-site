@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion"
 import { ArrowRight, BrainCircuit, Building2, ChevronLeft, ChevronRight, Download, Globe2, Play, Sparkles, Target } from "lucide-react"
+import SyncedObject3D from "../SyncedObject3D"
 
 const stories = [
     { image: "/gson-academy/tutor-ia.webp", alt: "Gson Academy: tutor com inteligência artificial", eyebrow: "Tutor IA", title: "Aprendizagem que acompanha o teu ritmo.", description: "Um tutor inteligente para explicar, praticar e criar o teu plano de estudo.", icon: BrainCircuit },
@@ -23,6 +24,7 @@ export default function GsonAcademy() {
 
     return (
         <section id="academy" className="relative overflow-hidden bg-[#050911] py-24 text-white sm:py-32">
+            <SyncedObject3D object="monogram" className="-right-10 top-8 h-44 w-44 opacity-70 sm:right-5 sm:h-64 sm:w-64" />
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_12%_20%,rgba(242,185,12,0.18),transparent_34%),radial-gradient(ellipse_at_85%_72%,rgba(29,78,216,0.20),transparent_38%)]" />
             <div className="pointer-events-none absolute inset-0 opacity-30 [background-image:linear-gradient(rgba(255,255,255,.055)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.055)_1px,transparent_1px)] [background-size:54px_54px]" />
 
